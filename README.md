@@ -24,26 +24,6 @@ The proposed model integrates:
 
 Experiments achieved accuracies of **94.61% (HFsim)**, **90.00% (LFsim)**, and **78.08% (NH)**, demonstrating the effectiveness of frequency-aware modeling.
 
-## 🏗️ Model Architecture
-
-The framework consists of three sequential modules reflected in the code structure:
-
-1. **Encoder Block (`model.py`)**:
-* Stacked 2D CNN layers for hierarchical feature extraction.
-* Positional embeddings to preserve temporal order.
-* Cross-attention mechanism to integrate hierarchical features.
-
-
-2. **Graph-Temporal Block (`model.py`)**:
-* Constructs dynamic brain graphs using Phase Locking Value (PLV).
-* **GAT:** Captures spatial dependencies among EEG channels.
-* **GRU:** Models temporal evolution of graph embeddings.
-
-
-3. **Classifier Block (`model.py` & `main.py`)**:
-* **Top-k Selection:** Identifies and averages the *k* most informative time steps for final prediction.
-
-
 
 ## File Structure
 
@@ -123,11 +103,12 @@ The proposed model was evaluated on a dataset of 48 participants under three aud
 
 ```
 
-## 👥 Authors & Contact
+## Citation
 
-* **Seoyeon Kim** - [ksuyeon1102@catholic.ac.kr](mailto:ksuyeon1102@catholic.ac.kr)
-* **Jihyun Lee** - [jihyunlee@hallym.ac.kr](mailto:jihyunlee@hallym.ac.kr)
-* **Minji Lee** (Corresponding Author) - [minjilee@catholic.ac.kr](mailto:minjilee@catholic.ac.kr)
+If you find this work useful in your research, please consider citing our paper:
+
+**"CenterIR: An Imbalance-Aware Deep Regression Framework for EEG-Based Depression Severity Estimation in Older Adults"**
+(The paper is currently under review.)
 
 ---
 
@@ -136,6 +117,5 @@ The proposed model was evaluated on a dataset of 48 participants under three aud
   - 연구 간단소개
   - 아키텍처 cnn bi-lstm centerir 소개
   - 파일 구조 각 파일에 뭐있는지
-  - requirements 나는 이거는 파이썬, 토치, 사이킷런 중요한거 버전 공개하고 더 자세한 버전과 모듈들은 .txt에 있다고 해야지
   - 사용방법 : 넘파이 형태의 쉐입 뭐 이런 데이터를 준비하고요, 런 코드 돌립니다. 여기서 각각의 파라미터가 뭘 의미하냐면요 ~~~, 
   - 도움이 되엇다면 인용해주세용 (Manuscript under review)
