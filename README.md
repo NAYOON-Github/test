@@ -6,7 +6,7 @@ This repository contains the official PyTorch implementation of the paper
 
 Last update : 2026/01/23
 
-## 📝 Abstract
+## Abstract
 
 Emotion recognition from electroencephalography (EEG) offers promising opportunities for affective computing. However, conventional approaches often overlook the heterogeneity of auditory impairments. This study proposes a **frequency-aware deep learning framework** for EEG-based emotion recognition under simulated auditory conditions (Normal Hearing, Low-Frequency Loss Simulation, High-Frequency Loss Simulation).
 
@@ -50,30 +50,38 @@ The following core dependencies are recommended to run the code properly.
 All experimental dependencies and version details can be found in `requirements.txt`.
 
 
-## 🚀 Usage
+## Usage
 
 ### 1. Data Preparation
 
-The code expects EEG features (`.npy`) and labels, along with PLV (Phase Locking Value) data.
-Ensure your data is placed in the directory specified in `main.py` (default: `/home/coni/CONIRepo/...`).
+Both input data and targets are expected as NumPy (`.npy`) files.
 
-You may need to modify the `data_dir` variable in `main.py`:
+- **Input**: NumPy array with shape `(N, 1, C, T)`
+  - `N`: number of samples
+  - `C`: number of channels
+  - `T`: number of time points
+- **Target**: NumPy array with shape `(N, 1)`
+
+The dataset used in this study is not publicly available.
+To verify that the training loop runs correctly, dummy data with the same format is provided.
+
+Once the data is prepared, load the input and target data in `run.py` as follows:
 
 ```python
-# main.py
-data_dir = "./data/"  # Update this path
-features = torch.tensor(np.load(data_dir + 'HFsim_pre_features_v1.npy'), dtype=torch.float32)
-labels = np.load(data_dir + 'HFsim_pre_labels_v1.npy')
-plv_data = np.load(data_dir + 'HFsim/HFsim_PLV_all_fre_pooling.npy')
+import numpy as np
+
+input_np = np.load("path/to/input.npy")    # shape: (N, 1, C, T)
+target_np = np.load("path/to/target.npy")   # shape: (N, 1)
 
 ```
 
+
 ### 2. Training
 
-To train the model using Stratified 10-Fold Cross-Validation, run:
+To train the model using 10-Fold Cross-Validation, run:
 
-```bash
-python main.py
+```python
+python run.py
 
 ```
 
@@ -81,13 +89,17 @@ python main.py
 
 Key hyperparameters can be configured in the `hparams` dictionary within `main.py`:
 
-* `seq_length`: 375 (Temporal length per sample)
-* `feature_size`: 5 (Number of frequency bands: Delta, Theta, Alpha, Beta, Gamma)
-* `in_channels`: 63 (Number of EEG electrodes)
-* `gat_out_channels`: 32
-* `gru_hidden_size`: 64
-* `batch_size`: 50
-* `learning_rate`: 1e-4
+```python
+BATCH_SIZE = 32
+Learning_Rate = 0.0001
+EPOCHS = 100
+
+## CenterIR hyperparameters
+boundaries = 16
+k = [1, 3, 5, 15]
+CenterIR_lambda = 5e-8
+
+```
 
 
 ## Citation
@@ -95,7 +107,8 @@ Key hyperparameters can be configured in the `hparams` dictionary within `main.p
 If you find this work useful in your research, please consider citing our paper:
 
 **"CenterIR: An Imbalance-Aware Deep Regression Framework for EEG-Based Depression Severity Estimation in Older Adults"**
-(The paper is currently under review.)
+
+(The paper is currently under-review.)
 
 ---
 
@@ -103,6 +116,5 @@ If you find this work useful in your research, please consider citing our paper:
 
   - 연구 간단소개
   - 아키텍처 cnn bi-lstm centerir 소개
-  - 파일 구조 각 파일에 뭐있는지
+
   - 사용방법 : 넘파이 형태의 쉐입 뭐 이런 데이터를 준비하고요, 런 코드 돌립니다. 여기서 각각의 파라미터가 뭘 의미하냐면요 ~~~, 
-  - 도움이 되엇다면 인용해주세용 (Manuscript under review)
