@@ -1,8 +1,8 @@
 # CenterIR-EEG-Depression
 
-This repository contains the official PyTorch implementation of the paper:
+This repository contains the official PyTorch implementation of the paper
 
-**CenterIR: An Imbalance-Aware Deep Regression Framework for EEG-Based Depression Severity Estimation in Older Adults**, published in *IEEE Journal of Biomedical and Health Informatics (JBHI)*.
+**"CenterIR: An Imbalance-Aware Deep Regression Framework for EEG-Based Depression Severity Estimation in Older Adults"**
 
 Last update : 2026/01/23
 
@@ -45,7 +45,7 @@ The framework consists of three sequential modules reflected in the code structu
 
 
 
-## 📂 File Structure
+## File Structure
 
 ```bash
 ├── dataset.py   # PyTorch Geometric Dataset classes (EEGDataset, BrainGraphDataset)
@@ -57,22 +57,18 @@ The framework consists of three sequential modules reflected in the code structu
 
 ```
 
-## 🛠️ Prerequisites
+## Dependencies
 
-This codebase is implemented using **PyTorch** and **PyTorch Geometric**. We recommend using a virtual environment.
+This project is implemented based on **PyTorch**.  
+The following core dependencies are recommended to run the code properly.
 
-```bash
-# Core dependencies
-python >= 3.8
-torch >= 1.12.0
-torch-geometric >= 2.3.0
-pytorch-lightning >= 2.0.0
-numpy
-scipy
-scikit-learn
-tqdm
+> - python >= 3.10
+> - torch = 2.7.0+cu118
+> - scikit-learn = 1.6.1
+> - numpy
 
-```
+All experimental dependencies and version details can be found in `requirements.txt`.
+
 
 ## 🚀 Usage
 
@@ -136,3 +132,10 @@ The proposed model was evaluated on a dataset of 48 participants under three aud
 ---
 
 *Note: This code is for research purposes only.*
+
+  - 연구 간단소개
+  - 아키텍처 cnn bi-lstm centerir 소개
+  - 파일 구조 각 파일에 뭐있는지
+  - requirements 나는 이거는 파이썬, 토치, 사이킷런 중요한거 버전 공개하고 더 자세한 버전과 모듈들은 .txt에 있다고 해야지
+  - 사용방법 : 넘파이 형태의 쉐입 뭐 이런 데이터를 준비하고요, 런 코드 돌립니다. 여기서 각각의 파라미터가 뭘 의미하냐면요 ~~~, 
+  - 도움이 되엇다면 인용해주세용 (Manuscript under review)
