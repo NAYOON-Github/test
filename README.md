@@ -1,10 +1,10 @@
-# Frequency-Aware EEG-Based Emotion Recognition under Simulated Auditory Degradation
+# CenterIR-EEG-Depression
 
 This repository contains the official PyTorch implementation of the paper:
 
-**Frequency-Aware EEG-Based Emotion Recognition under Simulated Auditory Degradation**, published in *IEEE Journal of Biomedical and Health Informatics (JBHI)*.
+**CenterIR: An Imbalance-Aware Deep Regression Framework for EEG-Based Depression Severity Estimation in Older Adults**, published in *IEEE Journal of Biomedical and Health Informatics (JBHI)*.
 
-Last update : 2026/01/22
+Last update : 2026/01/23
 
 ## 📝 Abstract
 
