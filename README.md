@@ -8,21 +8,15 @@ Last update : 2026/01/23
 
 ## Abstract
 
-Emotion recognition from electroencephalography (EEG) offers promising opportunities for affective computing. However, conventional approaches often overlook the heterogeneity of auditory impairments. This study proposes a **frequency-aware deep learning framework** for EEG-based emotion recognition under simulated auditory conditions (Normal Hearing, Low-Frequency Loss Simulation, High-Frequency Loss Simulation).
+Electroencephalography (EEG)-based mental health assessment has gained increasing attention as a non-invasive tool for quantifying depression severity in older adults. However, regression models for continuous severity prediction remain limited, particularly under imbalanced data distributions. This study presents a deep learning framework that integrates convolutional neural networks and bidirectional long short-term memory modules with a novel CenterIR loss to enhance regression performance.
 
-The proposed model integrates:
+The proposed methodology is as follows:
 
-1. **Multi-scale Convolutional Encoder:** Extracts localized time-frequency patterns with positional embeddings and cross-attention.
+1. **CNN Module:** Extracts both temporal and spatial features from EEG signals.
 
+2. **Bi-LSTM Module:** Captures bidirectional temporal context. 
 
-2. **Graph-Temporal Modeling:** Combines Graph Attention Networks (GAT) and Gated Recurrent Units (GRU) to model dynamic functional connectivity (PLV).
-
-
-3. **Top-k Temporal Selection:** A classifier that aggregates outputs from the most emotionally salient segments.
-
-
-
-Experiments achieved accuracies of **94.61% (HFsim)**, **90.00% (LFsim)**, and **78.08% (NH)**, demonstrating the effectiveness of frequency-aware modeling.
+3. **CenterIR Loss Function:** Derives continuous feature embeddings from unbalanced regression learning.
 
 
 ## File Structure
@@ -87,7 +81,7 @@ python run.py
 
 ### 3. Hyperparameters
 
-Key hyperparameters can be configured in the `hparams` dictionary within `main.py`:
+Key hyperparameters can be configured directly in `run.py`.:
 
 ```python
 BATCH_SIZE = 32
@@ -95,9 +89,9 @@ Learning_Rate = 0.0001
 EPOCHS = 100
 
 ## CenterIR hyperparameters
-boundaries = 16
-k = [1, 3, 5, 15]
-CenterIR_lambda = 5e-8
+boundaries = 16    # Initial boundary value; final sorted boundaries can be smaller than the initial setting
+k = [1, 3, 5, 15]    # The number of adjacent boundaries grouped together
+CenterIR_lambda = 5e-8    # CenterIR's weight parameter
 
 ```
 
@@ -110,11 +104,4 @@ If you find this work useful in your research, please consider citing our paper:
 
 (The paper is currently under-review.)
 
----
 
-*Note: This code is for research purposes only.*
-
-  - 연구 간단소개
-  - 아키텍처 cnn bi-lstm centerir 소개
-
-  - 사용방법 : 넘파이 형태의 쉐입 뭐 이런 데이터를 준비하고요, 런 코드 돌립니다. 여기서 각각의 파라미터가 뭘 의미하냐면요 ~~~, 
