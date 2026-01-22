@@ -89,19 +89,6 @@ Key hyperparameters can be configured in the `hparams` dictionary within `main.p
 * `batch_size`: 50
 * `learning_rate`: 1e-4
 
-## 📊 Results
-
-The proposed model was evaluated on a dataset of 48 participants under three auditory conditions.
-
-| Condition | Accuracy (%) | F1-Score |
-| --- | --- | --- |
-| **HFsim** (High-Freq Loss Sim) | **94.61 ± 2.14** | **94.62** |
-| **LFsim** (Low-Freq Loss Sim) | 90.00 ± 2.29 | 90.03 |
-| **NH** (Normal Hearing) | 78.08 ± 1.15 | 78.18 |
-
-*Table: Overall classification performance (Accuracy reported as Mean ± SD).*
-
-```
 
 ## Citation
 
