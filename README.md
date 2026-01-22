@@ -48,12 +48,12 @@ The framework consists of three sequential modules reflected in the code structu
 ## File Structure
 
 ```bash
-├── dataset.py   # PyTorch Geometric Dataset classes (EEGDataset, BrainGraphDataset)
-├── main.py      # Main entry point: Hyperparameters, K-Fold CV, and Training loop
-├── model.py     # Model architecture definitions (EncoderBlock, SpatialTemporalGNN, En_STGNN)
-├── train.py     # PyTorch Lightning Module defining training/validation steps
-├── util.py      # Data loading and preprocessing utilities (PLV pooling, Feature extraction)
-└── README.md    # Project documentation
+├── CenterIR.py         # Implementation of the proposed CenterIR loss function
+├── run.py              # Main entry point to run
+├── model.py            # CNN-Bi-LSTM architecture definition
+├── train.py            # Training and validation procedures
+├── requirements.txt    # Dependencies and version information
+└── README.md           # Project documentation
 
 ```
 
